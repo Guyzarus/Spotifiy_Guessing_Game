@@ -10,37 +10,39 @@ export default function Game() {
 
   return (
     <div className="GameContainer">
-      <h2>Song Clips</h2>
+      <h1>Game Time!</h1>
+      <section className="GamePanel">
+        <h2 className="Guesses">Guesses Left: 5</h2>
+        <h2 className="Timer">60</h2>
+        <h2 className="Points">Points Gained: 0</h2>
+      </section>
       <section className="MusicPlayer">
+      <h2>Song Clips</h2>
         <Song
-          name="Song 1"
+          name="1"
         />
         <Song
-          name="Song 2"
+          name="2"
         />
         <Song
-          name="Song 3"
+          name="3"
         />
       </section>
 
-      <h2>Select the Artist behind the music!</h2>
+      <h2>Select the Artist behind the music</h2>
       <section className="ArtistSelector">
         <Artist
-          name="Artist 1"
+          name="Beyonce"
         />
         <Artist
-          name="Artist 2"
+          name="Taylor Swift"
         />
         <Artist
-          name="Artist 3"
+          name="Ariana Grande"
         />
         <Artist
-          name="Artist 4"
+          name="Selena Gomez"
         />
-      </section>
-
-      <section className="Timer">
-        <p>1:00</p>
       </section>
     </div>
   );

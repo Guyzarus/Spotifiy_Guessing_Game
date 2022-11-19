@@ -1,7 +1,7 @@
 .GameContainer {
     width: 600px;
     display: block;
-    margin: 3rem auto;
+    margin: 4rem auto;
 }
 
 .GameContainer h1 {
@@ -29,6 +29,7 @@
     min-width: 100%;
     height: 100%;
     padding-bottom: 2rem;
+    justify-content: space-evenly;
 }
 
 .MusicPlayer h2 {
@@ -42,6 +43,16 @@
     width: 5rem;
     aspect-ratio: 1;
     margin-inline: auto;
+    background-image: url('./img/song.svg');
+    font-weight: 900;
+    font-size: 2rem;
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+.MusicPlayer button:hover {
+    border: 1px solid red;
 }
 
 .ArtistSelector {
@@ -54,6 +65,7 @@
 
 .ArtistSelector h2 {
     text-align: center;
+    margin-bottom: 0.5rem;
     grid-column: 1 / 3;
 }
 
@@ -62,20 +74,44 @@
     padding: 20px 50px;
     width: 90%;
     margin-inline: auto;
+    font-weight: 700;
+}
+.ArtistSelector button:hover {
+    background-color: rgb(227, 227, 227);
+}
+
+
+.GamePanel {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.Guesses {
+    text-align: left;
+    height: fit-content;
+    position: absolute;
+    bottom: 0;
+}
+
+.Points {
+    text-align: right;
+    height: fit-content;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .Timer {
-    margin: 2rem auto;
+    margin: 0 auto 0;
     width: 5rem;
     height: 5rem;
     border: 1px solid red;
     border-radius: 100%;
-}
-.Timer p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 5rem;
-    transform: translateY(-60%);
+    text-align: center;
+    line-height: 5rem;
     font-size: 3rem;
+    grid-column: 2 / 3;
 }
