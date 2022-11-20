@@ -1,15 +1,49 @@
-import React from "react";
+import { useState } from "react";
 import "./styles.css";
 
+import Artist from './Artist';
+import Song from "./Song";
+
 export default function Game() {
+  const [[artistList], [updateArtistList]] = useState([]); // I assume we'll store the songs and arists in arrays
+  const [[songsList], [updateSongsList]] = useState([]);
+
   return (
-    <div className="gameContainer">
-      <section className="music">Music player </section>
-      <h1>What song do you think is playing</h1>
-      <button> Guess 1</button>
-      <button> Guess 1</button>
-      <button> Guess 1</button>
-      <button> Guess 1</button>
+    <div className="GameContainer">
+      <h1>Game Time!</h1>
+      <section className="GamePanel">
+        <h2 className="Guesses">Guesses Left: 5</h2>
+        <h2 className="Timer">60</h2>
+        <h2 className="Points">Points Gained: 0</h2>
+      </section>
+      <section className="MusicPlayer">
+      <h2>Song Clips</h2>
+        <Song
+          name="1"
+        />
+        <Song
+          name="2"
+        />
+        <Song
+          name="3"
+        />
+      </section>
+
+      <h2>Select the Artist behind the music</h2>
+      <section className="ArtistSelector">
+        <Artist
+          name="Beyonce"
+        />
+        <Artist
+          name="Taylor Swift"
+        />
+        <Artist
+          name="Ariana Grande"
+        />
+        <Artist
+          name="Selena Gomez"
+        />
+      </section>
     </div>
   );
 }
