@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { ConfigurationContext } from "../contextState/Context";
 import Game from "./Game/Game";
 import Home from "./Home";
