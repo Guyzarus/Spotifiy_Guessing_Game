@@ -62,17 +62,6 @@ const Home = () => {
     });
   }, []);
 
-  useEffect(() => {
-    console.log("artist", artists);
-    let randomNum = Math.floor(Math.random() * artistCount);
-    console.log(randomNum);
-    setAnswerId(artists?.artists?.items[randomNum].id);
-    async function fetchData() {
-      await fetchSongs(artists?.artists?.items[randomNum].id);
-    }
-    fetchData();
-  }, [artists, setArtists]);
-
   if (authLoading || configLoading) {
     return <div>Loading...</div>;
   }
@@ -139,8 +128,7 @@ const Home = () => {
             value={3}
             onClick={(e) => artistCountHandler(e)}
           >
-            {" "}
-            3{" "}
+            3
           </button>
           <button
             className="choiceButton"
