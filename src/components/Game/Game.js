@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./styles.css";
 
-import Artist from './Artist';
+import Artist from "./Artist";
 import Song from "./Song";
 
 export default function Game() {
@@ -17,32 +17,18 @@ export default function Game() {
         <h2 className="Points">Points Gained: 0</h2>
       </section>
       <section className="MusicPlayer">
-      <h2>Song Clips</h2>
-        <Song
-          name="1"
-        />
-        <Song
-          name="2"
-        />
-        <Song
-          name="3"
-        />
+        <h2>Song Clips</h2>
+        <Song name="1" />
+        <Song name="2" />
+        <Song name="3" />
       </section>
 
       <h2>Select the Artist behind the music</h2>
       <section className="ArtistSelector">
-        <Artist
-          name="Beyonce"
-        />
-        <Artist
-          name="Taylor Swift"
-        />
-        <Artist
-          name="Ariana Grande"
-        />
-        <Artist
-          name="Selena Gomez"
-        />
+        <Artist name="Beyonce" />
+        <Artist name="Taylor Swift" />
+        <Artist name="Ariana Grande" />
+        <Artist name="Selena Gomez" />
       </section>
     </div>
   );

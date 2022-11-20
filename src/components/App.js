@@ -9,14 +9,19 @@ const App = () => {
   const [artistCount, setArtistCount] = useState(2);
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
+
   return (
     <ConfigurationContext.Provider
-      value={
-        ({ songCount, setSongCount },
-        { artistCount, setArtistCount },
-        { genres, setGenres },
-        { selectedGenre, setSelectedGenre })
-      }
+      value={{
+        songCount,
+        setSongCount,
+        artistCount,
+        setArtistCount,
+        genres,
+        setGenres,
+        selectedGenre,
+        setSelectedGenre,
+      }}
     >
       <Route exact path="/" component={Home} />
       <Game />
