@@ -1,9 +1,10 @@
-import './styles.css'
+import React from "react";
+import "./styles.css";
 
-const Artist = (props) => {
-    return (
-        <button>{props.name}</button> // needs onclick event of choosing this artist
-    )
-}
+const Artist = ({ name }) => {
+  return (
+    <button>{name}</button> // needs onclick event of choosing this artist
+  );
+};
 
-export default Artist
+export default Artist;
