@@ -70,7 +70,6 @@ export default function Game() {
     if (artistID === answerId) {
       console.log("Correct Artist")
       setPoints(points + 1);
-      fetchArtists(); // Fix: Not generating new round of artists
     }
     else {
       console.log("Incorrect Artist")
@@ -80,8 +79,10 @@ export default function Game() {
       else {
         // endGame({points})
       }
-      fetchArtists(); // Fix: Not generating new round of artists
     }
+    
+    fetchArtists(); // Fix: Not generating new round of artists
+    // To-Do: Restart timer function, Timer out of time function
   }
 
   const StyledGame = styled.div`
