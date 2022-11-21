@@ -24,9 +24,10 @@ export default function Game() {
   const [guesses, setGuesses] = useState(5);
 
   const fetchArtists = async (selectedGenre, artistCount) => {
+    const randomOffset = Math.floor(Math.random() * 1000);
     let response = await fetchFromSpotify({
       token: token,
-      endpoint: `search?q=genre:${selectedGenre}&type=artist&&limit=${artistCount}`,
+      endpoint: `search?q=genre:${selectedGenre}&type=artist&offset=${randomOffset}&limit=${artistCount}`,
     }).catch((err) => console.log(err));
     console.log("artists: ", response);
     setArtists(response);
@@ -66,24 +67,22 @@ export default function Game() {
   // }
 
   // Checks the incoming artist.id against the AnswerID to determine if correct
-  const checkAnswer = artistID => {
+  const checkAnswer = (artistID) => {
     if (artistID === answerId) {
-      console.log("Correct Artist")
+      console.log("Correct Artist");
       setPoints(points + 1);
-    }
-    else {
-      console.log("Incorrect Artist")
+    } else {
+      console.log("Incorrect Artist");
       if (guesses > 0) {
         setGuesses(guesses - 1);
-      }
-      else {
+      } else {
         // endGame({points})
       }
     }
-    
+
     fetchArtists(); // Fix: Not generating new round of artists
     // To-Do: Restart timer function, Timer out of time function
-  }
+  };
 
   const StyledGame = styled.div`
     width: 600px;
@@ -93,7 +92,7 @@ export default function Game() {
       text-align: center;
       margin-bottom: 2rem;
     }
-  `
+  `;
 
   return (
     <StyledGame>
