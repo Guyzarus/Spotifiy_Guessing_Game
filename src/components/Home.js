@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import fetchFromSpotify, { request } from "../services/api";
+import { ConfigurationContext } from "../contextState/Context";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 const AUTH_ENDPOINT =
@@ -8,13 +10,12 @@ const TOKEN_KEY = "whos-who-access-token";
 
 const Home = () => {
   const [genres, setGenres] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
   const [configLoading, setConfigLoading] = useState(false);
-  const [token, setToken] = useState("");
-
-  //logic to setSongs
-  const [songs, setSongs] = useState([]);
+  const { token, setToken } = useContext(ConfigurationContext);
+  const { selectedGenre, setSelectedGenre } = useContext(ConfigurationContext);
+  const { songCount, setSongCount } = useContext(ConfigurationContext);
+  const { artistCount, setArtistCount } = useContext(ConfigurationContext);
 
   const loadGenres = async (t) => {
     setConfigLoading(true);
@@ -27,9 +28,16 @@ const Home = () => {
     setConfigLoading(false);
   };
 
+  const songCountHandler = (e) => {
+    setSongCount(e.target.value);
+  };
+
+  const artistCountHandler = (e) => {
+    setArtistCount(e.target.value);
+  };
+
   useEffect(() => {
     setAuthLoading(true);
-
     const storedTokenString = localStorage.getItem(TOKEN_KEY);
     if (storedTokenString) {
       const storedToken = JSON.parse(storedTokenString);
@@ -60,6 +68,7 @@ const Home = () => {
 
   return (
     <div className="configurationDiv">
+      <div>{`Settings: genre = ${selectedGenre}, songs= ${songCount}, artists = ${artistCount} `}</div>
       <h1>Lets get your game started! </h1>
       <div className="ChoiceDiv">
         <h1 className="title">Pick a Genre</h1>
@@ -78,23 +87,62 @@ const Home = () => {
       <div className="ChoiceDiv">
         <h1 className="title">Pick the Number of songs </h1>
         <div className="songButtonDiv">
-          <button className="choiceButton"> 1 </button>
-          <button className="choiceButton"> 2 </button>
-          <button className="choiceButton"> 3 </button>
+          <button
+            className="choiceButton"
+            value={1}
+            onClick={(e) => songCountHandler(e)}
+          >
+            {" "}
+            1{" "}
+          </button>
+          <button
+            className="choiceButton"
+            value={2}
+            onClick={(e) => songCountHandler(e)}
+          >
+            {" "}
+            2{" "}
+          </button>
+          <button
+            className="choiceButton"
+            value={3}
+            onClick={(e) => songCountHandler(e)}
+          >
+            3
+          </button>
         </div>
       </div>
       <div className="ChoiceDiv">
         <h1 className="title">Pick the Number of artists </h1>
         <div className="artistButtonDiv">
-          <button className="choiceButton"> 2 </button>
-          <button className="choiceButton"> 3 </button>
-          <button className="choiceButton"> 4 </button>
+          <button
+            className="choiceButton"
+            value={2}
+            onClick={(e) => artistCountHandler(e)}
+          >
+            {" "}
+            2{" "}
+          </button>
+          <button
+            className="choiceButton"
+            value={3}
+            onClick={(e) => artistCountHandler(e)}
+          >
+            3
+          </button>
+          <button
+            className="choiceButton"
+            value={4}
+            onClick={(e) => artistCountHandler(e)}
+          >
+            {" "}
+            4{" "}
+          </button>
         </div>
-      </div>
-      <a>
-        {" "}
-        <button className="startGameText"> Start Game </button>
-      </a>
+      </div>{" "}
+      <Link className="startGameText" to="/Game">
+        Start Game
+      </Link>
     </div>
   );
 };
