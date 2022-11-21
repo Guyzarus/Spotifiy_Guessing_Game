@@ -24,9 +24,10 @@ export default function Game() {
   const [guesses, setGuesses] = useState(5);
 
   const fetchArtists = async (selectedGenre, artistCount) => {
+    const randomOffset = Math.floor(Math.random() * 1000);
     let response = await fetchFromSpotify({
       token: token,
-      endpoint: `search?q=genre:${selectedGenre}&type=artist&&limit=${artistCount}`,
+      endpoint: `search?q=genre:${selectedGenre}&type=artist&offset=${randomOffset}&limit=${artistCount}`,
     }).catch((err) => console.log(err));
     console.log("artists: ", response);
     setArtists(response);
@@ -80,8 +81,8 @@ export default function Game() {
         // endGame({points})
       }
     }
-    
-    fetchArtists(); // Fix: Not generating new round of artists
+
+    fetchArtists(selectedGenre, artistCount); // Fix: Not generating new round of artists
     // To-Do: Restart timer function, Timer out of time function
   }
 
