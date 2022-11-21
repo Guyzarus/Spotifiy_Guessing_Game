@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ConfigurationContext } from "../contextState/Context";
-import Game from "./Game/Game";
-import Home from "./Home";
+import { ConfigurationContext } from "./contextState/Context";
+import Game from "./screens/Game/Game";
+import Home from "./screens/Home/Home";
 import {
   BrowserRouter as Router,
   Switch,

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import fetchFromSpotify, { request } from "../services/api";
-import { ConfigurationContext } from "../contextState/Context";
+import fetchFromSpotify, { request } from "../../services/api";
+import { ConfigurationContext } from "../../contextState/Context";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
