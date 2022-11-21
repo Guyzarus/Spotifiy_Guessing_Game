@@ -25,7 +25,6 @@ export default function Game() {
 
   const fetchArtists = async (selectedGenre, artistCount) => {
     const randomOffset = Math.floor(Math.random() * 1000);
-    const randomOffset = Math.floor(Math.random() * 1000);
     let response = await fetchFromSpotify({
       token: token,
       endpoint: `search?q=genre:${selectedGenre}&type=artist&offset=${randomOffset}offset=${randomOffset}&limit=${artistCount}`,
@@ -80,7 +79,7 @@ export default function Game() {
         // endGame({points})
       }
     }
-    
+
     fetchArtists(); // Fix: Not generating new round of artists
     // To-Do: Restart timer function, Timer out of time function
   };
