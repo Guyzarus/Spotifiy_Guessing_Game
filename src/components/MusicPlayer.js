@@ -1,22 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import AudioPlayer from "react-h5-audio-player";
-
-const AudioPlayer = window.ReactH5AudioPlayer.default;
-
-class PlayerApp extends React.Component {
-  render() {
-    return (
-      <div className="container">
-        <h1> Press play to hear songs:</h1>
-        <AudioPlayer
-          src="https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3"
-          volume={0.5}
-        />
-      </div>
-    );
-  }
-}
 
 const StyledMusicPlayer = styled.div`
   display: grid;
