@@ -59,13 +59,6 @@ export default function Game() {
     fetchData();
   }, [artists, setArtists]);
 
-  // // To-Do: End Game logic
-  // const endGame = ({points}) => {
-  //   // Show Endgame screen
-  //   // Top score list?
-  //   // With restart button back to Home
-  // }
-
   // Checks the incoming artist.id against the AnswerID to determine if correct
   const checkAnswer = artistID => {
     if (artistID === answerId) {
@@ -78,12 +71,11 @@ export default function Game() {
         setGuesses(guesses - 1);
       }
       else {
-        // endGame({points})
+        // Redirect to score screen
       }
     }
 
-    fetchArtists(selectedGenre, artistCount); // Fix: Not generating new round of artists
-    // To-Do: Restart timer function, Timer out of time function
+    fetchArtists(selectedGenre, artistCount);
   }
 
   const StyledGame = styled.div`
@@ -101,7 +93,7 @@ export default function Game() {
       <h1>Game Time!</h1>
       <GamePanel>
         <Guesses guessTotal={guesses} />
-        <Timer />
+        <Timer timesUp={() => checkAnswer(null)} />
         <Points pointTotal={points} />
       </GamePanel>
       <MusicPlayer>

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { ConfigurationContext } from "./contextState/Context";
 import Game from "./screens/Game/Game";
 import Home from "./screens/Home/Home";
+import EndGame from "./screens/EndGame/EndGame";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -35,6 +37,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />}></Route>
         <Route exact path="/Game" element={<Game />}></Route>
+        <Route exact path="/score" element={<EndGame />}></Route>
       </Routes>
     </ConfigurationContext.Provider>
   );
