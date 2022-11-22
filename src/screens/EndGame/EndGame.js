@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { ConfigurationContext } from "../../contextState/Context";
+import "./styles.css";
 
-const EndGame = (props) => {
-    return (
-        <div>You scored {props.points}</div>
-    )
-} 
+const EndGame = () => {
+  const { points, setPoints } = useContext(ConfigurationContext);
 
-export default EndGame
+  return (
+    <div className="endGamediv">
+      <div>You scored: {points}</div>
+      <Link className="startGameText" to="/Game">
+        Restart Game
+      </Link>
+      <Link className="backToConfig" to="/">
+        Back to Configuration
+      </Link>
+    </div>
+  );
+};
+
+export default EndGame;
