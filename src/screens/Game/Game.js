@@ -68,9 +68,9 @@ export default function Game() {
       setPoints(points + 1);
     } else {
       console.log("Incorrect Artist");
-      if (guesses > 0) {
+      if (guesses > 1) {
         setGuesses(guesses - 1);
-      } else if (guesses <= 0) {
+      } else if (guesses <= 1) {
         navigate("/score", { state: { score: { points } } });
       }
     }
