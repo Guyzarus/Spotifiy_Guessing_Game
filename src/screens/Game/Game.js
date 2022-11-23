@@ -79,14 +79,23 @@ export default function Game() {
   };
 
   const StyledGame = styled.div`
-    width: 600px;
+    width: 90%;
     display: block;
-    margin: 4rem auto;
+    margin: 1rem auto;
     h1 {
       text-align: center;
       margin-bottom: 2rem;
+      font-size: 6rem;
     }
-  `;
+
+    @media (min-width: 70em) {
+      width: 600px;
+      margin: 4rem auto;
+      h1 {
+        font-size: 2rem;
+      }
+    }
+ `;
 
   return (
     <StyledGame>

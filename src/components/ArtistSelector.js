@@ -17,12 +17,22 @@ const StyledArtistSelector = styled.div`
     min-width: 100%;
     height: 100%;
     grid-auto-flow: row;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 
     h2 {
         text-align: center;
-        margin-bottom: 0.5rem;
-        grid-column: 1 / 3;
+        margin-bottom: 0.8rem;
+        grid-column: 1 / 2;
+        font-size: 3.2rem;
+    }
+
+    @media (min-width: 70em) {
+        grid-template-columns: 1fr 1fr;
+
+        h2 {
+            font-size: 1.5rem;
+            grid-column: 1 / 3;
+        }
     }
 `
 

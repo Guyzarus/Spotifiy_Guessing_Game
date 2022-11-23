@@ -8,11 +8,23 @@ const EndGame = () => {
 
   return (
     <div className="endGamediv">
-      <div>You scored: {points}</div>
-      <Link className="startGameText" to="/Game">
+      <div>You scored: {points} points</div>
+      <Link
+        onClick={() => {
+          setPoints(0);
+        }}
+        className="startGameText"
+        to="/Game"
+      >
         Restart Game
       </Link>
-      <Link className="backToConfig" to="/">
+      <Link
+        onClick={() => {
+          setPoints(0);
+        }}
+        className="backToConfig"
+        to="/"
+      >
         Back to Configuration
       </Link>
     </div>
