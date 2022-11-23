@@ -30,10 +30,12 @@ const Home = () => {
 
   const songCountHandler = (e) => {
     setSongCount(e.target.value);
+    localStorage.setItem("songCount", e.target.value);
   };
 
   const artistCountHandler = (e) => {
     setArtistCount(e.target.value);
+    localStorage.setItem("artistCount", e.target.value);
   };
 
   useEffect(() => {
@@ -74,7 +76,13 @@ const Home = () => {
         <h1 className="title">Pick a Genre</h1>
         <select
           value={selectedGenre}
-          onChange={(event) => setSelectedGenre(event.target.value)}
+          onChange={(event) => {
+            setSelectedGenre(event.target.value);
+            localStorage.setItem(
+              "selectedGenre",
+              JSON.stringify(event.target.value)
+            );
+          }}
         >
           <option value="" />
           {genres.map((genre) => (
