@@ -8,7 +8,7 @@ const EndGame = () => {
 
   return (
     <div className="endGamediv">
-      <div>You scored: {points}</div>
+      <div>You scored: {points} points</div>
       <Link className="startGameText" to="/Game">
         Restart Game
       </Link>

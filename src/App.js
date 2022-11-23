@@ -20,6 +20,18 @@ const App = () => {
   const [token, setToken] = useState("");
   const [points, setPoints] = useState(0);
 
+  if (localStorage.getItem("selectedGenre") !== selectedGenre)
+    setSelectedGenre(localStorage.getItem("selectedGenre"));
+  console.log(localStorage.getItem("selectedGenre"));
+
+  if (localStorage.getItem("songCount") !== songCount)
+    setSongCount(localStorage.getItem("songCount"));
+  console.log(localStorage.getItem("songCount"));
+
+  if (localStorage.getItem("artistCount") !== artistCount)
+    setArtistCount(localStorage.getItem("artistCount"));
+  console.log(localStorage.getItem("artistCount"));
+
   return (
     <ConfigurationContext.Provider
       value={{
