@@ -3,12 +3,20 @@ import styled from "styled-components";
 
 const StyledArtist = styled.button`
   border-radius: 5px;
-  padding: 20px 50px;
+  padding: 40px 50px;
   width: 90%;
   margin-inline: auto;
   font-weight: 700;
+  font-size: 4rem;
+  margin-bottom: 15px;
   &:hover {
     background-color: rgb(227, 227, 227);
+  }
+
+  @media (min-width: 70em) {
+    padding: 20px 50px;
+    font-size: 1rem;
+    margin-bottom: 0px;
   }
 `
 

@@ -6,7 +6,6 @@ const StyledMusicPlayer = styled.div`
   flex-direction: row;
   align-content: center;
   margin-top: 20px;
-  padding-bottom: 20px;
   max-width: 500px;
   align-items: center;
   border: 1px solid #eeeeee;
@@ -23,7 +22,15 @@ const StyledMusicPlayer = styled.div`
   h2 {
     text-align: center;
     grid-column: 1 / 4;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 4rem;
+  }
+
+  @media (min-width: 70em) {
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
   }
 `;
 
