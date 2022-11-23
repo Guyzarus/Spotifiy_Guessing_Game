@@ -18,6 +18,7 @@ const App = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
   const [token, setToken] = useState("");
+  const [points, setPoints] = useState(0);
 
   return (
     <ConfigurationContext.Provider
@@ -32,6 +33,8 @@ const App = () => {
         setSelectedGenre,
         token,
         setToken,
+        points,
+        setPoints,
       }}
     >
       <Routes>

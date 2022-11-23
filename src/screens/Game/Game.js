@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { ConfigurationContext } from "../../contextState/Context";
 import fetchFromSpotify from "../../services/api";
 import styled from "styled-components";
+import { Router, useNavigate } from "react-router-dom";
 
 import Artist from "../../components/Artist";
 import Song from "../../components/Song";
@@ -20,14 +21,15 @@ export default function Game() {
   const { selectedGenre, setSelectedGenre } = useContext(ConfigurationContext);
   const { token, setToken } = useContext(ConfigurationContext);
   const [answerId, setAnswerId] = useState(0);
-  const [points, setPoints] = useState(0);
+  const { points, setPoints } = useContext(ConfigurationContext);
   const [guesses, setGuesses] = useState(5);
+  const navigate = useNavigate();
 
   const fetchArtists = async (selectedGenre, artistCount) => {
     const randomOffset = Math.floor(Math.random() * 1000);
     let response = await fetchFromSpotify({
       token: token,
-      endpoint: `search?q=genre:${selectedGenre}&type=artist&offset=${randomOffset}offset=${randomOffset}&limit=${artistCount}`,
+      endpoint: `search?q=genre:${selectedGenre}&type=artist&offset=${randomOffset}&limit=${artistCount}`,
     }).catch((err) => console.log(err));
     console.log("artists: ", response);
     setArtists(response);
@@ -38,7 +40,7 @@ export default function Game() {
       token,
       endpoint: `artists/${artistId}/top-tracks?country=US`,
     }).catch((err) => console.log(err));
-    // console.log("songs", response);
+    console.log("songs", response);
     return setSongs(response);
   };
 
@@ -68,14 +70,13 @@ export default function Game() {
       console.log("Incorrect Artist");
       if (guesses > 0) {
         setGuesses(guesses - 1);
-      }
-      else {
-        // Redirect to score screen
+      } else if (guesses <= 0) {
+        navigate("/score", { state: { score: { points } } });
       }
     }
 
     fetchArtists(selectedGenre, artistCount);
-  }
+  };
 
   const StyledGame = styled.div`
     width: 600px;
