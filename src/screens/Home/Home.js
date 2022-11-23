@@ -30,12 +30,12 @@ const Home = () => {
 
   const songCountHandler = (e) => {
     setSongCount(e.target.value);
-    localStorage.setItem("songCount", JSON.stringify(e.target.value));
+    localStorage.setItem("songCount", e.target.value);
   };
 
   const artistCountHandler = (e) => {
     setArtistCount(e.target.value);
-    localStorage.setItem("artistCount", JSON.stringify(e.target.value));
+    localStorage.setItem("artistCount", e.target.value);
   };
 
   useEffect(() => {
