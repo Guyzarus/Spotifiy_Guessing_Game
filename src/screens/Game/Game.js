@@ -26,7 +26,7 @@ export default function Game() {
   const navigate = useNavigate();
 
   const fetchArtists = async (selectedGenre, artistCount) => {
-    const randomOffset = Math.floor(Math.random() * 1000);
+    const randomOffset = Math.floor(Math.random() * 200);
     let response = await fetchFromSpotify({
       token: token,
       endpoint: `search?q=genre:${selectedGenre}&type=artist&offset=${randomOffset}&limit=${artistCount}`,
