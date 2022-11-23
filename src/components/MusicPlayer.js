@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import CharlieLastNameWilson from "../audio/CharlieLastNameWilson";
+
 import styled from "styled-components";
 
 const StyledMusicPlayer = styled.div`
@@ -31,41 +31,5 @@ const StyledMusicPlayer = styled.div`
 const MusicPlayer = ({ children }) => {
   return <StyledMusicPlayer>{children}</StyledMusicPlayer>;
 };
-
-// {/* <audio
-//   id="current-song"
-//   preload="true"
-//   loop
-//   autoPlay
-//   src={
-//     song === "CharlieLastNameWilson"
-//       ? CharlieLastNameWilson
-//       : song === "CharlieLastNameWilson"
-//   }
-// />;
-// const songList = ["CharlieLastNameWilson"];
-// return (
-//   <div className="menu--list">
-//     {songList.map((song) => (
-//       <h3
-//         className="menu--item"
-//         key={song}
-//         onClick={() => handleSongChange(song)}
-//       >
-//         {song}
-//       </h3>
-//     ))}
-//   </div>
-// );
-
-// const [entered, triggerEntered] = useState(false);
-// const handleEnter = () => {
-//   triggerEntered(true);
-//   const audio = document.getElementById("current-song");
-//   audio.play();
-// };
-// {
-//   !entered ? <LoadScreen handleEnter={handleEnter} /> : null;
-// } */}
 
 export default MusicPlayer;
