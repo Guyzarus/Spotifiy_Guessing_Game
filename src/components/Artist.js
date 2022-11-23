@@ -7,7 +7,7 @@ const StyledArtist = styled.button`
   width: 90%;
   margin-inline: auto;
   font-weight: 700;
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 15px;
   &:hover {
     background-color: rgb(227, 227, 227);
